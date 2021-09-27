@@ -1,3 +1,4 @@
+
 def standaardprijs(afstandKM):
     """
     Bepaal de prijs van een treinrit. Iedere treinrit kost 80 cent per kilometer,
@@ -25,6 +26,8 @@ def standaardprijs(afstandKM):
 
 afstandKM = int(input("Input nummer"))
 standaardprijs(afstandKM)
+
+# This next line will appear on P4 soon
 
 
 def ritprijs(leeftijd, weekendrit, afstandKM):

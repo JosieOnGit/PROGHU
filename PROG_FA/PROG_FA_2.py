@@ -1,38 +1,42 @@
 
-def standaardprijs(afstandKM):
-    price = afstandKM * 0.80
-    if afstandKM <= 0:
-        price = 0
+def standardprice(distanceKM):
+    price = distanceKM * 0.80
+    if distanceKM <= 0:
+        startPrice = 0
 
-    elif afstandKM > 50:
-        price = 15 + (afstandKM * 0.60)
+    elif distanceKM > 50:
+        startPrice = 15 + (distanceKM * 0.60)
 
     else:
-        price = afstandKM * 0.80
+        startPrice = distanceKM * 0.80
 
-    return round(price, 2)
-
-
-afstandKM = int(input("Input nummer"))
-standaardprijs(afstandKM)
+    return startPrice
 
 
-def ritprijs(leeftijd, weekendrit, afstandKM):
-    """
-    Het eerste wat deze functie moet doen, is het aanroepen van
-    functie standaardprijs, waarbij de afstand in kilometers doorgegeven
-    moet worden om de standaardprijs voor de rit op te vragen.
-    Aan de hand van de standaardprijs kan de actuele ritprijs worden berekend.
-    De regels zijn als volgt:
-     * Op werkdagen reizen kinderen (onder 12 jaar) en ouderen (65 en ouder) met 30% korting.
-     * In het weekend reist deze groep met 35% korting.
-     * Overige leeftijdsgroepen betalen de gewone prijs, behalve in het weekend. Dan reist
-       deze leeftijdsgroep met 40% korting.
-    Args:
-        leeftijd (int): De leeftijd van de reiziger in gehele jaren.
-        weekendrit (bool): True als het een rit in het weekend betreft, anders False.
-        afstandKM (int): De reisafstand in kilometers.
-    Returns:
-        float: De berekende ritprijs.
-    """
-    return
+def travelPrice(age, weekendTrip, distanceKM):
+    if weekendTrip == True:
+        if 65 >= age or 12 > age:
+            finalPrice = standardprice(distanceKM) * 0.65
+            return finalPrice
+        if 65 > age or 12 <= age:
+            finalPrice = standardprice(distanceKM) / 100 * 60
+            return finalPrice
+
+    if weekendTrip == False:
+        if 65 >= age or 12 > age:
+            finalPrice = standardprice(distanceKM) * 0.7
+            return finalPrice
+        if 65 > age or 12 < age:
+            finalPrice = standardprice(distanceKM)
+            return finalPrice
+
+
+distanceKM = int(input("Please fill in your trip's distance: "))
+age = int(input("Please fill in your age: "))
+weekendTripInput = input("Are you travelling in the weekend? (Y/N) ")
+if weekendTripInput == "y" or weekendTripInput == "Y":
+    weekendTrip = True
+else:
+    weekendTrip = False
+tripCost = travelPrice(age, weekendTrip, distanceKM)
+print("The total cost of your trip will be", round(tripCost, 2), "EUR")

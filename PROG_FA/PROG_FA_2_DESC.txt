@@ -1,0 +1,32 @@
+In dit algoritme bevinden zich 2 functies: standardPrice(distanceKM) en travelPrice(age, weekendTrip, distanceKM)
+Ten eerste wordt de gebruiker gevraagd om het volgende in te voeren:
+age
+weekendTripInput
+distanceKM
+
+Zodra deze variabelen een waarde hebben, gebeurt het volgende:
+standardPrice(distanceKM) gaat met de waarde van distanceKM aan de slag
+Er wordt gecontroleerd op het volgende:
+    Wanneer de afstand lager dan 0km, of 0km zelf is, dan is de prijs van de rit standaard 0 euro
+    Wanneer de afstand groter is dan 0km, tot en met 50km, wordt de afstand vermenigvuldigd met 0.8.
+        In deze range kost een rit ook 80ct per kilometer
+    Wanneer de afstand groter is dan 50km, verandert de berekening
+        Vanaf 50+km kost een rit 60ct per kilometer, en wordt er standaard 15 EUR bij opgeteld
+
+Nu de prijs bekend is voor de rit, gebeurt het volgende:
+Eerder is de gebruiker gevraagd om hun leeftijd, en of het weekend is
+De gebruiker beantwoordt de vraag om het weekend met "Y" of met "N"
+    Wanneer de gebruiker antwoordt met "Y" (Het is dus weekend), krijgt weekendTrip de waarde "True"
+    Wanneer de gebruiker antwoordt met "N" (Het is geen weekend), dan krijgt weekendTrip de waarde "False"
+Dit wordt vervolgens doorgerekend in de functie travelPrice(age, weekendTrip, distanceKM)
+Als de gebruiker 65+ is, of jonger dan 12, wordt er korting verrekend
+    In het weekend (weekendTrip == True) krijgt deze groep 35% korting (prijs / 100 * 65)
+    Buiten het weekend (weekendTrip == False) krijgt deze groep 30% korting (prijs / 100 * 70)
+Valt de gebruiker buiten deze groepen? Dan geldt het volgende:
+    In het weekend (weekendTrip == True) krijgt deze groep 40% korting (prijs / 100 * 60)
+    Buiten het weekend (weekendTrip == False) krijgt deze groep geen korting
+
+Deze gegevens worden uiteindelijk samengevoegd in de laatste print-functie
+De eindprijs na het toepassen van travelPrice(age, weekendTrip, distanceKM) (tripCost)
+wordt afgerond op 2 decimalen, en uitgeprint naar de gebruiker
+Hierna eindigt het programma

@@ -16,9 +16,9 @@ def standardprice(distanceKM):
 def travelPrice(age, weekendTrip, distanceKM):
     if weekendTrip == True:
         if 65 >= age or 12 > age:
-            finalPrice = standardprice(distanceKM) * 0.65
+            finalPrice = standardprice(distanceKM) / 100 * 65
             return finalPrice
-        if 65 > age or 12 <= age:
+        else:
             finalPrice = standardprice(distanceKM) / 100 * 60
             return finalPrice
 
@@ -26,7 +26,7 @@ def travelPrice(age, weekendTrip, distanceKM):
         if 65 >= age or 12 > age:
             finalPrice = standardprice(distanceKM) * 0.7
             return finalPrice
-        if 65 > age or 12 < age:
+        else:
             finalPrice = standardprice(distanceKM)
             return finalPrice
 

@@ -20,7 +20,7 @@ elif nameQ.lower() == "n":
     name = "Anonymous"
 else:
     print("That didn't work. \n"
-          "Please restart and answer either Y (Yes) or N (No)")
+          "Please restart and answer either Y (Yes) or N (No) \n")
     # Ends the program early to avoid getting errors when trying to execute review(message, station, name)
     quit()
 review(message, station, name)

@@ -1,11 +1,11 @@
 
 def review(message, station, name):
     messagesDB = open("tweet_list.txt", "a")
-    print("Thank you for leaving your message! \n"
-          "Your message will now be reviewed and appear soon at your train station.")
 
     if len(message) <= 140:
         messagesDB.write(station + ", " + name + ", " + message + "\n")
+        print("Thank you for leaving your message! \n"
+              "Your message will now be reviewed and appear soon at your train station.")
     else:
         print("This message is too long (max. 140 characters) \n"
               "We only support messages up to 140 characters. Please restart and try again.")

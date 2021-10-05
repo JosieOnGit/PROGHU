@@ -3,10 +3,10 @@
 def standardPrice(distanceKM):
     if distanceKM <= 0: # If a negative number, or 0, is inputted, the price will be 0
         startprice = 0
-    elif distanceKM > 50: # For trips above 50KM, the cost will be 15 EUR and 60 ct per KM
-        startprice = 15 + (distanceKM * 0.60)
-    else: # These are trips from 1 to 50 KM, standard price calculation
+    elif distanceKM <= 50: # For trips above 50KM, the cost will be 15 EUR and 60 ct per KM
         startprice = distanceKM * 0.80
+    else: # These are trips from 1 to 50 KM, standard price calculation
+        startprice = 15 + (distanceKM * 0.60)
 
     return startprice
 

@@ -16,6 +16,7 @@ def review():
             print("You've rejected this message: " + message[-1] + "\n")
             rejectedTweets.write("Rejected, " + line)
 
+    print("That was all, thank you for reviewing the new messages!")
     messageDB.close()
     approvedTweets.close()
 

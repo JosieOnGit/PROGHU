@@ -20,10 +20,11 @@ Lever je werk in op Canvas als alle tests slagen.
 def standardPrice(distanceKM):
     if distanceKM <= 0: # If a negative number, or 0, is inputted, the price will be 0
         startprice = 0
-    elif distanceKM > 50: # For trips above 50KM, the cost will be 15 EUR and 60 ct per KM
-        startprice = 15 + (distanceKM * 0.60)
-    else: # These are trips from 1 to 50 KM, standard price calculation
+    elif distanceKM <= 50: # For trips above 50KM, the cost will be 15 EUR and 60 ct per KM
         startprice = distanceKM * 0.80
+    else: # These are trips from 1 to 50 KM, standard price calculation
+        startprice = 15 + (distanceKM * 0.60)
+
 
     return startprice
 
@@ -123,7 +124,7 @@ def test_ritprijs():
                   case(12, True,  51, 27.36), case(12, False,  51, 45.6),  case(12, True, -51,  0.0),  case(12, False, -51, 0.0),
                   case(64, True,  50, 24.0),  case(64, False,  50, 40.0),  case(64, True,  51, 27.36), case(64, False, 51, 45.6),
                   case(64, True, -51,  0.0),  case(64, False, -51,  0.0),  case(65, True,  50, 26.0),  case(65, False, 50, 28.0),
-                  case(65, True,  51, 29.64), case(65, False,  51, 31.92) ]
+                  case(65, True,  51, 29.64), case(65, False,  51, 31.92), case(65, True, -51, 0.0),   case(65, False, -51, 0.0) ]
 
     for test in testcases:
         __my_assert_args(travelPrice, (test.age, test.weekend, test.distance), test.expected_output)

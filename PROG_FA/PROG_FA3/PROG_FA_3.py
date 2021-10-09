@@ -3,11 +3,11 @@ def inputNumber(optionInput):
     if optionInput == "1":
         print(f"There are {freeLockersCount()} lockers still available.")
     elif optionInput == "2":
-        print(newLocker())
+        newLocker()
     elif optionInput == "3":
-        print(openLocker())
+        openLocker()
     elif optionInput == "4":
-        print(returnLocker())
+        returnLocker()
     else:
         print("Please only enter a number between 1-4.")
 
@@ -17,15 +17,27 @@ def inputNumber(optionInput):
 # This will increase the line length, thus making it occupied.
 def freeLockersCount():
     lockerFile = open("lockers.txt")
-    lockers = lockerFile.readlines()
-    lockerCount = 0
-    for line in lockers:
-        if len(line) <= 4:
-            lockerCount += 1
-        else:
-            lockerCount += 0
+    occupiedLockers = len(lockerFile.readlines())
+    lockerAmount = 12 - occupiedLockers
+    lockerFile.close()
+    return int(lockerAmount)
 
-    return lockerCount
+
+def newLocker():
+    lockerFile = open("lockers.txt", "r+")
+    content = lockerFile.readlines()
+    for locker in content:
+
+
+    lockerAmount = freeLockersCount()
+    if lockerAmount >= 1:
+        userCode = input("A free locker is available!\n"
+                         "Please input a password for your locker (>4 characters): ")
+        if len(userCode) >= 4:
+            lockerFile.write(f"{str(lockerAmount)} ; {userCode}\n")
+            print(f"Success! You can now open locker {lockerAmount} with your code!")
+        else:
+            print("Your password isn't long enough, please try again.")
 
 
 # Opening request

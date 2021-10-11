@@ -4,7 +4,7 @@
 # Will the real Momosuzu Nene
  please stand up
  
-![](../../Pictures/!Archive/Hololive/Gen 5/FAN9_7-VQAQaG-k.jpg)
+![](https://pbs.twimg.com/media/FAN9_7-VQAQaG-k?format=jpg&name=4096x4096)
 
 # Thank you
 momosuzu nene for standing up 

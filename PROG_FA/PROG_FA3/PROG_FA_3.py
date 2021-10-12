@@ -26,16 +26,22 @@ def freeLockersCount():
 def newLocker():
     lockerFile = open("lockers.txt", "r+")
     content = lockerFile.readlines()
-#    for locker in content:
-    lockerAmount = freeLockersCount()
-    if lockerAmount >= 1:
-        userCode = input("A free locker is available!\n"
-                         "Please input a password for your locker (>4 characters): ")
-        if len(userCode) >= 4:
-            lockerFile.write(f"{str(lockerAmount)} ; {userCode}\n")
-            print(f"Success! You can now open locker {lockerAmount} with your code!")
-        else:
-            print("Your password isn't long enough, please try again.")
+    lockerFile.close()
+    for locker in range(1, 13):
+        lockerClaimed = False
+        for var in content:
+            if str(locker) in var:
+                lockerClaimed = True
+        if lockerClaimed == False:
+            while True:
+                lockerFile = open("lockers.txt", "a")
+                password = input("Please insert a password for your locker (4 or more characters): ")
+                if len(password) >= 4:
+                    lockerFile.write(f"{locker};{password}\n")
+                    print("Success! Check the file to see your new locker added.")
+                    break
+                else:
+                    print("That didn't work. Please insert a password of 4 characters or longer.")
 
 
 def openLocker():
@@ -47,7 +53,7 @@ def returnLocker():
 
 
 # Opening request
-print("1: I want to see the mount of free lockers. \n"
+print("1: I want to see the amount of free lockers. \n"
       "2: I want a new locker. \n"
       "3. I want to get something out of my locker. \n"
       "4. I'm returning my locker. \n")

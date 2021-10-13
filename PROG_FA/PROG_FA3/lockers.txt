@@ -7,5 +7,4 @@
 8;allahu
 6;arduino
 2;locker
-9;coolgyutg
-11;lcokgkg
+9;whatlockeristhis

@@ -46,18 +46,17 @@ def newLocker():
         if lockerClaimed is False:
             lockerFile = open("lockers.txt", "a")
             password = input("Please insert a password for your locker (4 or more characters): ")
-            checkPassword = True
-            if ";" in password:
-                checkPassword = False
-            if len(password) >= 4 and checkPassword is True:
+            if ";" in password or len(password) < 4:
+                return -1
+            else:
+                checkPassword = True
+
+            if checkPassword is True:
                 lockerFile.write(f"{locker};{password}\n")
                 print(f"Success! You can now open locker {locker}.")
-                lockerClaimed = True
                 lockerFile.close()
-                break
-            else:
-                # print("That didn't work. Please insert a password of 4 characters or longer.")
-                return -1
+                return 0
+            return -1
 
 
 def openLocker():
@@ -70,7 +69,6 @@ def openLocker():
             password = ";" + input("Please fill in your password: ")
             if password in line:
                 print(f"Success! You can now open your locker ({lockerNum})!")
-                checkPassword = True
             else:
                 print("That didn't work. Are you sure you have the right locker/password combination?")
                 break
@@ -99,7 +97,7 @@ def development_code():
 
 def module_runner():
     development_code()  # Comment deze regel om je 'development_code' uit te schakelen
-    #__run_tests()       # Comment deze regel om de HU-tests uit te schakelen
+    __run_tests()       # Comment deze regel om de HU-tests uit te schakelen
 
 
 """

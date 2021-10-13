@@ -3,16 +3,19 @@ def inputNumber(optionInput):
     if optionInput == "1":
         print(f"There are {freeLockersCount()} lockers still available.")
     elif optionInput == "2":
-        if newLocker() == -2:
+        output2 = newLocker()
+        if output2 == -2:
             print("Sorry! There aren't any free lockers left.")
-        while newLocker() == -1:
+        elif output2 == -1:
             print("That didn't work. Are you sure you did everything right?")
+        elif output2 == 0:
+            print("Success! Program closing.")
     elif optionInput == "3":
         openLocker()
     elif optionInput == "4":
         returnLocker()
     elif optionInput == "5":
-        print("Closing the program.p")
+        print("Closing the program.")
     else:
         print("Please only enter a number between 1-5.")
 
@@ -42,17 +45,18 @@ def newLocker():
         if lockerClaimed is False:
             lockerFile = open("lockers.txt", "a")
             password = input("Please insert a password for your locker (4 or more characters): ")
-            checkPassword = False
-            if ";" in password:
-                checkPassword = False
-            if len(password) >= 4 and checkPassword is True:
+            checkPassword = ""
+            if ";" in password or len(password) < 4:
+                return -1
+            else:
+                checkPassword = True
+
+            if checkPassword is True:
                 lockerFile.write(f"{locker};{password}\n")
                 print(f"Success! You can now open locker {locker}.")
-                lockerClaimed = True
                 lockerFile.close()
-                break
-            else:
-                return -1
+                return 0
+            return -1
 
 
 def openLocker():

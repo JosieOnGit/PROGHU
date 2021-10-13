@@ -40,8 +40,8 @@ def newLocker():
         return -2
     for locker in range(1, 13):
         lockerClaimed = False
-        for var in content:
-            if str(locker) in var:
+        for line in content:
+            if str(locker) in line:
                 lockerClaimed = True
         if lockerClaimed is False:
             lockerFile = open("lockers.txt", "a")
@@ -55,7 +55,7 @@ def newLocker():
                 lockerFile.write(f"{locker};{password}\n")
                 print(f"Success! You can now open locker {locker}.")
                 lockerFile.close()
-                return 0
+                return locker
             return -1
 
 
@@ -66,28 +66,39 @@ def openLocker():
     lockerNum = int(input("Please fill in your locker number: "))
     for line in content:
         if str(lockerNum) in line:
-            password = ";" + input("Please fill in your password: ")
-            if password in line:
-                print(f"Success! You can now open your locker ({lockerNum})!")
+            password = str(lockerNum) + ";" + input("Please fill in your password: ") + "\n"
+            if password == line:
+                return True
             else:
-                print("That didn't work. Are you sure you have the right locker/password combination?")
-                break
+                return False
+        else:
+            return False
 
 
-def kluis_teruggeven():
-    """
-    Laat de gebruiker een kluisnummer invoeren, en direct daarna de bijbehorende
-    kluiscode. Indien deze combinatie voorkomt in het tekstbestand met de kluizen
-    die in gebruik zijn, moet deze combinatie/regel uit het tekstbestand verwijderd
-    worden.
+def returnLocker():
+    lockerFile = open("lockers.txt")
+    content = lockerFile.readlines()
+    lockerFile.close()
+    clear()
+    lockerNum = int(input("Please fill in your locker number: "))
+    password = str(lockerNum) + ";" + input("Please fill in your password: ") + "\n"
+    for line in content:
+        if password != line:
+            lockerFile = open("lockers.txt", "a")
+            lockerFile.write(line)
+    if password not in content:
+        lockerFile.close()
+        return True
+    else:
+        lockerFile.close()
+        return False
 
-    Als het lukt om de combinatie te vinden en te verwijderen, is het resultaat
-    van de functie True, anders False.
 
-    Returns:
-        bool: True als er een kluiscombinatie verwijderd werd, anders False
-    """
-    return
+# Function to clear the file used in returnLocker()
+def clear():
+    lockerFile = open("lockers.txt", "w")
+    lockerFile.write("")
+    lockerFile.close()
 
 
 def development_code():
@@ -207,7 +218,7 @@ def test_nieuwe_kluis():
 
             # if all possible safenumbers are positive, a new safenumber should be registered by now
             if all(possible_safe_number > 0 for possible_safe_number in test.possible_outputs):
-                free_safes = aantal_kluizen_vrij()
+                free_safes = freeLockersCount()
                 expected_free_safes = 12 - (len(test.safes) + 1)
 
                 msg = f"Fout: {function.__name__}() geeft aan dat een nieuwe kluis (nummer {output}) gereserveerd is, maar " \

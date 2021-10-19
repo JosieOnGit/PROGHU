@@ -2,8 +2,13 @@
 def review(message, station, name):
     messagesDB = open("tweet_list.txt", "a")
 
+    form = {
+        "StationName": station,
+        "Name": name,
+        "Message": message
+    }
     if len(message) <= 140:
-        messagesDB.write(station + ", " + name + ", " + message + "\n")
+        messagesDB.write(f"{form}\n")
         print("Thank you for leaving your message! \n"
               "Your message will now be reviewed and appear soon at your train station.")
     else:

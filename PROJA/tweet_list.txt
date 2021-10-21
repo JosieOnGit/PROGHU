@@ -1,2 +1,3 @@
 {'StationName': 'Afoort CS', 'Name': 'Jochem', 'Message': 'This is a very cool message wpwpwowpwpwppwwowowowoowowow'}
 {'StationName': 'Singapore', 'Name': 'Anonymous', 'Message': 'Whatthefuckckxckkcckxckk!!!!!!!!!'}
+{'StationName': 'Arnhem', 'Name': 'Juan', 'Message': "This is a pretty cool message isn't it?"}

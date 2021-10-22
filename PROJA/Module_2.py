@@ -5,20 +5,21 @@ def review():
     rejectedTweets = open("rejected_tweets.txt", "a")
     readMessage = messageDB.readlines()
     for line in readMessage:
-        message = line.strip().split(sep=", ")
-        print("\"" + message[-1] + "\"")
-        print("Please check the above message for any profanity, reliability, and others.")
+        message = eval(line)["message"]
+        print(f"\"{message}\"")
+        print("Please check the above message for any profanity, reliability, etc.")
         approvalQ = input("Do you approve this message? (Y/N) ")
         if approvalQ.lower() == "y":
-            print("You've approved this message: " + message[-1] + "\n")
-            approvedTweets.write("Approved, " + line)
+            print(f"You've approved this message: \"{message}\"\n")
+            approvedTweets.write(line)
         else:
-            print("You've rejected this message: " + message[-1] + "\n")
-            rejectedTweets.write("Rejected, " + line)
+            print(f"You've rejected this message: \"{message}\"\n")
+            rejectedTweets.write(line)
 
     print("That was all, thank you for reviewing the new messages!")
     messageDB.close()
     approvedTweets.close()
+    rejectedTweets.close()
 
 
 def cleanup():

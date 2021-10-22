@@ -3,17 +3,16 @@ def review(message, station, name):
     messagesDB = open("tweet_list.txt", "a")
 
     form = {
-        "StationName": station,
-        "Name": name,
-        "Message": message
+        "stationName": station,
+        "name": name,
+        "message": message
     }
     if len(message) <= 140:
         messagesDB.write(f"{form}\n")
-        print("Thank you for leaving your message! \n"
-              "Your message will now be reviewed and appear soon at your train station.")
+        return 1
+
     else:
-        print("This message is too long (max. 140 characters) \n"
-              "We only support messages up to 140 characters. Please restart and try again.")
+        return 0
 
 
 message = input("Please leave a message for us! ")
@@ -28,4 +27,13 @@ else:
           "Please restart and answer either Y (Yes) or N (No) \n")
     # Ends the program early to avoid getting errors when trying to execute review(message, station, name)
     quit()
-review(message, station, name)
+output = review(message, station, name)
+
+if output == 1:
+    print("Thank you for leaving your message! \n"
+          "Your message will now be reviewed and appear soon at your train station.")
+elif output == 0:
+    print("This message is too long (max. 140 characters) \n"
+          "We only support messages up to 140 characters. Please restart and try again.")
+else:
+    print("Something went wrong, are you sure you did everything right?")

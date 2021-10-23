@@ -48,7 +48,7 @@ def outputTrip(stations, departure, arrival):
           f"Your trip crosses {distance} stations.\n"
           f"The cost of this trip will be €{price}\n"
           "\n"
-          f"You will board the train in: {stationsLst[departureIndex]}\n"
+          f"You will board the train in {stationsLst[departureIndex]}\n"
           f"Passing the following stations:")
     currentStation = departureIndex
     for station in range(departureIndex, arrivalIndex):
@@ -57,7 +57,7 @@ def outputTrip(stations, departure, arrival):
         else:
             currentStation += 1
             print(f"  - {stationsLst[currentStation]}")
-    print(f"Until you'll exit the train again in: {stationsLst[arrivalIndex]}")
+    print(f"Until you'll exit the train again in {stationsLst[arrivalIndex]}")
     return departureStation, arrivalStation, distance, price
 
 

@@ -1,0 +1,15 @@
+---The following messages have been reviewed by Zeeuw on 2021-10-23 at 19:44:47.742318:
+Rejected for: "Message contains profanity", {'stationName': 'Amsterdam', 'name': 'Anonymous', 'message': 'Message containing profanity'}
+
+---The following messages have been reviewed by Nemiskei on 2021-10-23 at 20:19:21.804291:
+Rejected for: "Message contains loads of profanity", {'stationName': 'Breda', 'name': 'Alex', 'message': 'What the fuck dude! What!!! What the fuck!!!!!! What the hell!!!!!!'}
+
+---The following messages have been reviewed by Alusken on 2021-10-23 at 20:30:55.399070:
+Rejected for: "Pointless message", {'stationName': 'Almere Centraal', 'name': 'tnv/4443213', 'message': 'Shut the fuck up I dont even drive your train I just want free money please paypal me 3 billion USD'}
+Rejected for: "Pointless message", {'stationName': 'Arnhem', 'name': 'Anonymous', 'message': 'Who the fuck asked your train sucks'}
+Rejected for: "Message has no reason to exist", {'stationName': 'im lost ', 'name': 'Anonymous', 'message': 'who are you where am i'}
+Rejected for: "Message is pointless and contains profanity", {'stationName': 'Hilversum', 'name': 'Anonymous', 'message': 'shut hte ufck up'}
+
+---The following messages have been reviewed by Mathram on 2021-10-23 at 20:42:03.182013:
+
+---The following messages have been reviewed by Moderator1 on 2021-10-23 at 20:43:21.093353:

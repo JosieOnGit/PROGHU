@@ -1,2 +1,0 @@
-{'stationName': 'Amersfoort', 'name': 'User', 'message': 'Informative message'}
-{'stationName': 'Amsterdam', 'name': 'Anonymous', 'message': 'Message containing profanity'}

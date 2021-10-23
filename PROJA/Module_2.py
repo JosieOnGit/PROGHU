@@ -12,7 +12,9 @@ def review():
     time = dt.datetime.now().time()
 
     superuser = input("Please enter your last name: ")
-    reviewLine = f"The following messages have been reviewed by {superuser} on {date} at {time}:\n"
+    reviewLine = f"\n---The following messages have been reviewed by {superuser} on {date} at {time}:\n"
+    approvedTweets.write(reviewLine)
+    rejectedTweets.write(reviewLine)
 
     for line in readMessage:
         message = eval(line)["message"]
@@ -20,12 +22,14 @@ def review():
         print("Please check the above message for any profanity, reliability, etc.")
         approvalQ = input("Do you approve this message? (Y/N): ")
         if approvalQ.lower() == "y":
-            print(f"You've approved this message: \"{message}\"\n")
-            approvedTweets.write(line)
+            print(f"You've approved this message: \"{message}\"")
+            approvedTweets.write(f"{line}")
         else:
+            removalReason = input("You are rejecting the above message. Please give a reason as to why: ")
             print(f"You've rejected this message: \"{message}\"\n")
-            rejectedTweets.write(line)
+            rejectedTweets.write(f"Rejected for: \"{removalReason}\", {line}")
 
+    print("Thank you! This was all for now, please check back soon for new messages!")
     messageDB.close()
     approvedTweets.close()
     rejectedTweets.close()

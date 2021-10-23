@@ -14,6 +14,6 @@ twitter = Twython(
     access_token_secret
 )
 
-message = "i cant pay electric bill"
+message = "https://twitter.com/i/status/1451985724899794944"
 twitter.update_status(status=message)
 print("Tweeted: %s" % message)

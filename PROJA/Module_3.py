@@ -13,7 +13,3 @@ twitter = Twython(
     access_token,
     access_token_secret
 )
-
-message = "i WILL tweet a lot"
-twitter.update_status(status=message)
-print("Tweeted: %s" % message)

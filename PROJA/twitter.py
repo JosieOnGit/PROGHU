@@ -14,6 +14,6 @@ twitter = Twython(
     access_token_secret
 )
 
-message = "i WILL tweet a lot"
+message = "twitter.com"
 twitter.update_status(status=message)
 print("Tweeted: %s" % message)

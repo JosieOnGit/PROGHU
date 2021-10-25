@@ -13,3 +13,6 @@ Rejected for: "Message is pointless and contains profanity", {'stationName': 'Hi
 ---The following messages have been reviewed by Mathram on 2021-10-23 at 20:42:03.182013:
 
 ---The following messages have been reviewed by Moderator1 on 2021-10-23 at 20:43:21.093353:
+
+---The following messages have been reviewed by de Zeeuw on 2021-10-25 at 10:29:12.357990:
+Rejected for: "not interesting", {'stationName': 'arnhem', 'name': 'Anonymous', 'message': 'interesting message'}

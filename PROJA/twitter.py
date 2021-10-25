@@ -14,6 +14,6 @@ twitter = Twython(
     access_token_secret
 )
 
-message = "twitter.com"
+message = "no more data i deleted it all"
 twitter.update_status(status=message)
 print("Tweeted: %s" % message)

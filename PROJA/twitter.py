@@ -14,6 +14,6 @@ twitter = Twython(
     access_token_secret
 )
 
-message = "no more data i deleted it all"
+message = "twython.exceptions.TwythonError: Twitter API returned a 403 (Forbidden), Tweet needs to be a bit shorter."
 twitter.update_status(status=message)
 print("Tweeted: %s" % message)

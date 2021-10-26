@@ -15,6 +15,8 @@ while True:
         "bday": bday,
         "email": email
     }
+    with open(file, "r") as file:
+        content = json.load(file)
 
-    with open(file, "a") as file:
-        json.dump(form, file, indent=4)
+    with open("pe_10_2_users.json", "w") as file:
+        json.dump(content, form, indent=4)

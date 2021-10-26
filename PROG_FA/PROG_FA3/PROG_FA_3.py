@@ -90,9 +90,9 @@ def returnLocker():
     clear()
     lockerNum = int(input("Please fill in your locker number: "))
     password = str(lockerNum) + ";" + input("Please fill in your password: ") + "\n"
+    lockerFile = open("lockers.txt", "a")
     for line in content:
         if password != line:
-            lockerFile = open("lockers.txt", "a")
             lockerFile.write(line)
     if password not in content:
         lockerFile.close()

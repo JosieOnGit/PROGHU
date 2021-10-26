@@ -5,10 +5,6 @@ def inputDeparture(stations):
     while stationInLst is False:
         departureStation = input("What station will you depart from?\n"
                                  ">> ")
-        departureIndex = 1
-        for station in stationsLst:
-            if departureStation.capitalize() != station:
-                departureIndex += 1
         if departureStation.capitalize() in stationsLst:
             stationInLst = True
             return departureStation.capitalize()

@@ -1,12 +1,2 @@
-1;hunter2
-3;turkyte
-4;what
-5;password
-7;spanish
-11;seiauivoldi
-8;allahu
-6;arduino
-2;locker
-9;whatlockeristhis
-10;whoisthis
-12;whoareyou
+1;password
+3;wowowowowo

@@ -1,0 +1,205 @@
+{
+  "links": {},
+  "payload": [{
+    "sporen": [],
+    "synoniemen": [],
+    "heeftFaciliteiten": true,
+    "heeftVertrektijden": true,
+    "heeftReisassistentie": false,
+    "code": "STP",
+    "namen": {
+      "lang": "London St. Pancras Int.",
+      "kort": "London StP",
+      "middel": "London St. P Int"
+    },
+    "stationType": "MEGA_STATION",
+    "land": "GB",
+    "UICCode": "7015400",
+    "lat": 51.531437,
+    "lng": -0.126136,
+    "radius": 1,
+    "naderenRadius": 1,
+    "EVACode": "7004428"
+  }, {
+    "sporen": [],
+    "synoniemen": [],
+    "heeftFaciliteiten": true,
+    "heeftVertrektijden": true,
+    "heeftReisassistentie": false,
+    "code": "MA",
+    "namen": {
+      "lang": "Augsburg Hbf",
+      "kort": "Augsburg",
+      "middel": "Augsburg Hbf"
+    },
+    "stationType": "SNELTREIN_STATION",
+    "land": "D",
+    "UICCode": "8002140",
+    "lat": 48.3654307143927,
+    "lng": 10.88547706604,
+    "radius": 1,
+    "naderenRadius": 1,
+    "EVACode": "8000013"
+  }, {
+    "sporen": [],
+    "synoniemen": [],
+    "heeftFaciliteiten": true,
+    "heeftVertrektijden": true,
+    "heeftReisassistentie": false,
+    "code": "BHF",
+    "namen": {
+      "lang": "Berlin Ostbahnhof",
+      "kort": "Berlin Ost",
+      "middel": "Berlin Ostbhf"
+    },
+    "stationType": "KNOOPPUNT_INTERCITY_STATION",
+    "land": "D",
+    "UICCode": "8003004",
+    "lat": 52.5104989,
+    "lng": 13.4346995,
+    "radius": 1,
+    "naderenRadius": 1,
+    "EVACode": "8010255"
+  }, {
+    "sporen": [],
+    "synoniemen": [],
+    "heeftFaciliteiten": true,
+    "heeftVertrektijden": true,
+    "heeftReisassistentie": false,
+    "code": "BSPD",
+    "namen": {
+      "lang": "Berlin-Spandau",
+      "kort": "Berlin-Spa",
+      "middel": "Berlin-Spandau"
+    },
+    "stationType": "INTERCITY_STATION",
+    "land": "D",
+    "UICCode": "8003025",
+    "lat": 52.5343152,
+    "lng": 13.1989467,
+    "radius": 1,
+    "naderenRadius": 1,
+    "EVACode": "8010404"
+  }, {
+    "sporen": [],
+    "synoniemen": [],
+    "heeftFaciliteiten": true,
+    "heeftVertrektijden": true,
+    "heeftReisassistentie": false,
+    "code": "GSB",
+    "namen": {
+      "lang": "Berlin Gesundbrunnen",
+      "kort": "Berlin Gsb",
+      "middel": "Berlin Gesundbr."
+    },
+    "stationType": "INTERCITY_STATION",
+    "land": "D",
+    "UICCode": "8007799",
+    "lat": 52.5486327,
+    "lng": 13.3904267,
+    "radius": 1,
+    "naderenRadius": 1,
+    "EVACode": "8011102"
+  }, {
+    "sporen": [],
+    "synoniemen": [],
+    "heeftFaciliteiten": true,
+    "heeftVertrektijden": true,
+    "heeftReisassistentie": false,
+    "code": "ESRT",
+    "namen": {
+      "lang": "Schwerte (Ruhr)",
+      "kort": "Schwerte",
+      "middel": "Schwerte (R)"
+    },
+    "stationType": "STOPTREIN_STATION",
+    "land": "D",
+    "UICCode": "8008016",
+    "lat": 51.442281,
+    "lng": 7.55896,
+    "radius": 1,
+    "naderenRadius": 1,
+    "EVACode": "8000037"
+  }, {
+    "sporen": [],
+    "synoniemen": [],
+    "heeftFaciliteiten": true,
+    "heeftVertrektijden": true,
+    "heeftReisassistentie": false,
+    "code": "HAGEN",
+    "namen": {
+      "lang": "Hagen Hbf",
+      "kort": "Hagen",
+      "middel": "Hagen Hbf"
+    },
+    "stationType": "KNOOPPUNT_SNELTREIN_STATION",
+    "land": "D",
+    "UICCode": "8008073",
+    "lat": 51.362747,
+    "lng": 7.460249,
+    "radius": 1,
+    "naderenRadius": 1,
+    "EVACode": "8000142"
+  }, {
+    "sporen": [],
+    "synoniemen": [],
+    "heeftFaciliteiten": true,
+    "heeftVertrektijden": true,
+    "heeftReisassistentie": false,
+    "code": "WUPPV",
+    "namen": {
+      "lang": "Wuppertal-Vohwinkel",
+      "kort": "Wupp-Vohw",
+      "middel": "Wupp-Vohwinkel"
+    },
+    "stationType": "STOPTREIN_STATION",
+    "land": "D",
+    "UICCode": "8008082",
+    "lat": 51.23351,
+    "lng": 7.07237,
+    "radius": 1,
+    "naderenRadius": 1,
+    "EVACode": "8006718"
+  }, {
+    "sporen": [],
+    "synoniemen": [],
+    "heeftFaciliteiten": true,
+    "heeftVertrektijden": true,
+    "heeftReisassistentie": false,
+    "code": "EENP",
+    "namen": {
+      "lang": "Ennepetal",
+      "kort": "Ennepetal",
+      "middel": "Ennepetal"
+    },
+    "stationType": "STOPTREIN_STATION",
+    "land": "D",
+    "UICCode": "8008134",
+    "lat": 51.304892,
+    "lng": 7.343285,
+    "radius": 1,
+    "naderenRadius": 1,
+    "EVACode": "8001795"
+  }, {
+    "sporen": [],
+    "synoniemen": [],
+    "heeftFaciliteiten": true,
+    "heeftVertrektijden": true,
+    "heeftReisassistentie": false,
+    "code": "KSWE",
+    "namen": {
+      "lang": "Schwelm",
+      "kort": "Schwelm",
+      "middel": "Schwelm"
+    },
+    "stationType": "STOPTREIN_STATION",
+    "land": "D",
+    "UICCode": "8008136",
+    "lat": 51.290526,
+    "lng": 7.289681,
+    "radius": 1,
+    "naderenRadius": 1,
+    "EVACode": "8000033"
+  }],
+  "meta": {}
+}

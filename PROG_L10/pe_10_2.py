@@ -1,5 +1,18 @@
 
+# Dit programma gaat er van uit dat pe_10_2_users.json al bestaat
 import json
+
+
+def addForm():
+    with open(file, "r") as loadFile:
+        lst = json.load(loadFile)
+        lst.append(form)
+
+    with open(file, "w") as writeFile:
+        json.dump(lst, writeFile, indent=4)
+
+
+file = "pe_10_2_users.json"
 
 while True:
     name = input("What is your name? ")
@@ -16,22 +29,12 @@ while True:
         "email": email
     }
     try:
-        with open("pe_10_2_users.json", "r") as loadFile:
-            lst = json.load(loadFile)
-            lst.append(form)
-
-        with open("pe_10_2_users.json", "w") as writeFile:
-            json.dump(lst, writeFile, indent=4)
+        addForm()
 
     except json.decoder.JSONDecodeError:
         emptyLst = []
-        with open("pe_10_2_users.json", "w") as writeFile:
+        with open(file, "w") as writeFile:
             json.dump(emptyLst, writeFile)
 
-        with open("pe_10_2_users.json", "r") as loadFile:
-            lst = json.load(loadFile)
-            lst.append(form)
-
-        with open("pe_10_2_users.json", "w") as writeFile:
-            json.dump(lst, writeFile, indent=4)
+        addForm()
         continue

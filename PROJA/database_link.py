@@ -11,15 +11,15 @@ con = psycopg2.connect(
 
 cur = con.cursor()
 
-# cur.execute("select atribuut, atribuut from tabel")
+cur.execute("select attribuut, attribuut from tabel")
 
-# cur.execute('insert into tabel (attribuut, attribuut, attribuut) values (%s, %s, %s)',
-#                (attribuut, attribuut, attribuut))
+cur.execute('insert into tabel (attribuut, attribuut, attribuut) values (%s, %s, %s)',
+           (attribuut, attribuut, attribuut))
 
 rows = cur.fetchall()
 
 for r in rows:
-    print(f"atribuut {r[0]} atribuut {r[1]}")
+    print(f"attribuut {r[0]} attribuut {r[1]}")
 
 cur.close()
 

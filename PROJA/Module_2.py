@@ -1,5 +1,6 @@
 
 import datetime as dt
+import psycopg
 
 
 def review():
@@ -39,6 +40,24 @@ def cleanup():
     messageDB = open("tweet_list.txt", "w")
     messageDB.write("")
     messageDB.close()
+
+
+def connectDB():
+    con = psycopg.connect(
+        host='localhost',
+        dbname='postgres',
+        user='postgres',
+        password='admin',
+        port=4444
+    )
+
+
+def writeApprove():
+    print("placeholder")
+
+
+def writeReject():
+    print("placeholder")
 
 
 review()

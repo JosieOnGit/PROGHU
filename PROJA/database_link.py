@@ -3,7 +3,7 @@ import psycopg
 
 
 def collectItems():
-    sql = "SELECT * from collection"
+    sql = "SELECT * from TwitterDB"
     cur = con.cursor()
     cur.execute(sql)
     rows = cur.fetchall()
@@ -15,7 +15,7 @@ def collectItems():
 
 con = psycopg.connect(
     host='localhost',
-    dbname='twitter',
+    dbname='Twitter',
     user='postgres',
     password='admin',
     port=4444

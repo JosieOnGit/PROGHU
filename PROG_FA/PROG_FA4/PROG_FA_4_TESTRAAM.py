@@ -58,22 +58,25 @@ def outputTrip(stations, departure, arrival):
     arrivalStation = stations.index(arrival) + 1
     distance = arrivalIndex - departureIndex
     price = distance * 5
-    print(f"Departure station {stationsLst[departureIndex]} is station {departureStation} on this traject.\n"
-          f"Arrival station {stationsLst[arrivalIndex]} is station {arrivalStation} on this traject.\n"
-          f"Your trip crosses {distance} stations.\n"
-          f"The cost of this trip will be €{price}\n"
-          "\n"
-          f"You will board the train in: {stationsLst[departureIndex]}\n"
-          f"Passing the following stations:")
+
     currentStation = departureIndex
+    stops = ""
     for station in range(departureIndex, arrivalIndex):
         if currentStation + 1 == arrivalIndex:
             continue
         else:
             currentStation += 1
-            print(f"  - {stationsLst[currentStation]}")
-    print(f"Until you'll exit the train again in: {stationsLst[arrivalIndex]}")
-    return departureStation, arrivalStation, distance, price
+            stops += f"  - {stationsLst[currentStation]}\n"
+
+    result = f"Departure station {stationsLst[departureIndex]} is station {departureStation} on this traject.\n" \
+             f"Arrival station {stationsLst[arrivalIndex]} is station {arrivalStation} on this traject.\n" \
+             f"Your trip crosses {distance} stations.\n" \
+             f"The cost of this trip will be €{price}\n" \
+             f"You will board the train in: {stationsLst[departureIndex]}\n" \
+             f"Passing the following stations:\n" \
+             f"{stops}" \
+             f"Until you'll exit the train again in: {stationsLst[arrivalIndex]}"
+    return result
 
 
 def development_code():

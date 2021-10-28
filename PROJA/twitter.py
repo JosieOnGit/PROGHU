@@ -14,6 +14,6 @@ twitter = Twython(
     access_token_secret
 )
 
-message = "C:\\Users\\Josie\\Downloads\\image0-10.jpg"
+message = "Tokoyami Towa (常闇トワ) is a female Japanese Virtual YouTuber associated with hololive, debuting as part of its fourth generation of VTubers al"
 twitter.update_status(status=message)
 print("Tweeted: %s" % message)

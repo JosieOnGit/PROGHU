@@ -9,8 +9,11 @@ def collectItems():
     rows = cur.fetchall()
     print(rows)
 
+    messageID = 0
     for item in rows:
-        print(item[1])
+        print(item[0])
+        messageID += 1
+    print(messageID)
 
 
 con = psycopg.connect(

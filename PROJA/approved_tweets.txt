@@ -13,3 +13,8 @@
 
 ---The following messages have been reviewed by Moderator1 on 2021-10-23 at 20:43:21.093353:
 {'stationName': 'station', 'name': 'user1', 'message': 'testingmessage'}
+
+---The following messages have been reviewed by Nuje on 2021-10-30 at 19:46:00.403987:
+{'stationName': 'Assen', 'name': 'Marijke', 'message': 'The trains are fantastic! I enjoyed the super quiet trip form the south to the north'}
+
+-----This part of Module 2 is now discontinued and will be left unused for the rest of PROJA-----

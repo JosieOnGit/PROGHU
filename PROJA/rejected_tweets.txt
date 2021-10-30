@@ -13,3 +13,8 @@ Rejected for: "Message is pointless and contains profanity", {'stationName': 'Hi
 ---The following messages have been reviewed by Mathram on 2021-10-23 at 20:42:03.182013:
 
 ---The following messages have been reviewed by Moderator1 on 2021-10-23 at 20:43:21.093353:
+
+---The following messages have been reviewed by Nuje on 2021-10-30 at 19:46:00.403987:
+Rejected for: "This message is not directed to anyone and serves no purpose", {'stationName': 'Tilburg', 'name': 'Anonymous', 'message': 'Waht he ruck the fk sje kth the a fuck what'}
+
+-----This part of Module 2 is now discontinued and will be left unused for the rest of PROJA-----

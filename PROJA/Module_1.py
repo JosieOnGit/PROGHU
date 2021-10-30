@@ -7,12 +7,13 @@ def review(message, station, name):
         "name": name,
         "message": message
     }
-    if len(message) <= 140:
-        messagesDB.write(f"{form}\n")
-        return True
-
-    else:
-        return False
+    while True:
+        if len(message) <= 140:
+            messagesDB.write(f"{form}\n")
+            return True
+        else:
+            print("This message is too long (max. 140 characters) \n"
+                  "We only support messages up to 140 characters. Please shorten your message and try again.")
 
 
 message = input("Please leave a message for us! ")
@@ -24,16 +25,14 @@ while True:
         break
     elif nameQ.lower() == "n":
         name = "Anonymous"
+        break
     else:
         print("That didn't work. \n"
               "Please answer either Y (Yes) or N (No) \n")
-output = review(message, station, name)
 
+output = review(message, station, name)
 if output is True:
     print("Thank you for leaving your message! \n"
           "Your message will now be reviewed and appear soon at your train station.")
-elif output is False:
-    print("This message is too long (max. 140 characters) \n"
-          "We only support messages up to 140 characters. Please restart and try again.")
 else:
     print("Something went wrong, are you sure you did everything right?")

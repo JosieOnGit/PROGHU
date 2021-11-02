@@ -1,5 +1,5 @@
 
-from twython import Twython
+import tweepy
 from auth import (
     consumer_key,
     consumer_secret,
@@ -7,14 +7,13 @@ from auth import (
     access_token_secret
 )
 
-twitter = Twython(
-    consumer_key,
-    consumer_secret,
-    access_token,
-    access_token_secret
-)
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+api = tweepy.API(auth)
 
-message = "Tokoyami Towa (常闇トワ) is a female Japanese Virtual YouTuber associated with hololive, debuting as part of its fourth generation of VTubers al"
-photo = open("C:\\Users\\TheBl\\Downloads\\q6edqb41wts71.png", "rb")
-response = twitter.upload_media(media=photo)
-twitter.update_status(media_ids=[response['media_id']])
+user = api.get_user(screen_name="TowaVEVO")
+print(user.followers_count)
+
+message = input(">> ")
+api.update_status(message)
+print(f"\"{message}\" was successfully submitted to Twitter!")

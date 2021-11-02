@@ -13,7 +13,7 @@ def review():
         url = "https://ipapi.co/json"
         response = requests.get(url)
         station = response.json()["city"]
-        print("----- Success! \n")
+        print(f"----- Success! You are currently in {station}. \n")
     except:
         print("Location data error: HTTP/1.1 429 | Too Many Requests.")
         station = input("\n----- Something went wrong while trying to locate . \n"
@@ -30,8 +30,8 @@ def review():
             print("----- Thank you! \n")
             break
         else:
-            print("----- That didn't work (HTTP/1.1 | 403 Forbidden). \n"
-                  "----- That message is too long, please make it shorter. \n")
+            print("----- Submission error: HTTP/1.1 | 403 Forbidden. \n"
+                  f"----- That message is too long ({len(messageQ)} > 140), please make it shorter. \n")
 
     name = input("----- Next, please enter your name. \n"
                  "----- You can leave it empty if you wish to stay anonymous. \n"
@@ -69,4 +69,5 @@ if output is True:
     print("----- Thank you for taking your time to leave a review! \n"
           "----- Your message will be reviewed and appear soon at your current train station.")
 else:
-    print("Something went wrong, are you sure you did everything right?")
+    print("The program ran into an exceptional error, that can't be fixed at this very moment.\n"
+          "Please ask the on-location staff for assistance, thank you for your patience.")

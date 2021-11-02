@@ -14,6 +14,7 @@ api = tweepy.API(auth)
 user = api.get_user(screen_name="TowaVEVO")
 print(user.followers_count)
 
-message = input(">> ")
-api.update_status(message)
-print(f"\"{message}\" was successfully submitted to Twitter!")
+# message = input(">> ")
+image = "C:\\Users\\TheBl\\Downloads\\image0-22-1.jpg"
+api.media_upload(image)
+# print(f"\"{message}\" was successfully submitted to Twitter!")

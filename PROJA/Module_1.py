@@ -15,7 +15,8 @@ def review():
         station = response.json()["city"]
         print("----- Success! \n")
     except:
-        station = input("\n----- That didn't work (HTTP/1.1 429 | Too Many Requests). \n"
+        print("Location data error: HTTP/1.1 429 | Too Many Requests.")
+        station = input("\n----- Something went wrong while trying to locate . \n"
                         "----- Please manually fill in the station you are currently at. \n"
                         ">> ")
         print("----- Thank you! \n")

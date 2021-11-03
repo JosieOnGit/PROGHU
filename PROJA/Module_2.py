@@ -1,7 +1,7 @@
 
-import datetime as dt
 import psycopg
 import tweepy
+from datetime import datetime
 from auth import (
     consumer_key,
     consumer_secret,
@@ -24,11 +24,11 @@ def review():
 
     for line in rows:
         print(f"----- \"{line[3]}\" \n"
-              f"----- Please check the above message for any profanity, reliability, etc.")
-        approvalQ = input("----- Do you approve this message? (Y/N) \n"
+              f"      Please check the above message for any profanity, reliability, etc.")
+        approvalQ = input("      Do you approve this message? (Y/N) \n"
                           ">> ")
         if approvalQ.lower() == "y":
-            timestamp = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
             print(f"----- You've successfully approved this message: \"{line[3]}\" \n")
 
@@ -46,14 +46,14 @@ def review():
             try:
                 print("----- Attempting to push message to Twitter... ")
                 api.update_status(line[3])
-                print(f"----- Message \"{line[3]}\" is published to Twitter! \n")
+                print(f"      Message \"{line[3]}\" is published to Twitter! \n")
             except:
                 print("----- Unknown error \n"
-                      "Something went wrong, we're looking into the issue. \n"
-                      "You might need to manually add the message to Twitter.")
+                      "      Something went wrong, we're looking into the issue. \n"
+                      "      You might need to manually add the message to Twitter.")
 
         else:
-            timestamp = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
             removalReason = input("----- You are rejecting the above message. Please give a reason as to why. \n"
                                   ">> ")
@@ -71,7 +71,7 @@ def review():
             cur.execute(update, pushValues)
             con.commit()
 
-    print("----- Thank you! This was all for now, please check back soon for new messages!")
+    print("----- There currently are no messages to be reviewed, please check back again soon!")
 
 
 # This here connects the program to the database

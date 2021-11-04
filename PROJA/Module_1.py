@@ -15,7 +15,7 @@ def review():
         station = response.json()["city"]
         print(f"      Success! You are currently in {station}. \n")
     except:
-        print("----- Location data error: HTTP/1.1 429 | Too Many Requests.")
+        print("----- That didn't work (Location data error: HTTP/1.1 | 429 Too Many Requests.)")
         station = input("\n----- Something went wrong while trying to locate the station you're at. \n"
                         "      Please manually fill in the station you are currently at. \n"
                         ">> ")
@@ -30,7 +30,7 @@ def review():
             print("----- Thank you! \n")
             break
         else:
-            print("----- Submission error: HTTP/1.1 | 403 Forbidden. \n"
+            print("----- That didn't work (Submission error: HTTP/1.1 | 403 Forbidden.) \n"
                   f"      That message is too long ({len(messageQ)} > 140), please make it shorter. \n")
 
     name = input("----- Next, please enter your name. \n"

@@ -1,5 +1,6 @@
 
-from twython import Twython
+import tweepy
+from tkinter import *
 from auth import (
     consumer_key,
     consumer_secret,
@@ -7,9 +8,9 @@ from auth import (
     access_token_secret
 )
 
-twitter = Twython(
-    consumer_key,
-    consumer_secret,
-    access_token,
-    access_token_secret
-)
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+api = tweepy.API(auth)
+
+root = Tk()
+

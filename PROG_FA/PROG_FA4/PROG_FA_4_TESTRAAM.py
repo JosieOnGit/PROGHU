@@ -44,10 +44,16 @@ def inputArrival(stations, departure):
                 arrivalIndex += 1
             else:
                 break
-        if arrivalStation.capitalize() in stationsLst and arrivalIndex > departureIndex:
+        if arrivalIndex < departureIndex:
+            print(f"{arrivalStation.capitalize()} is located before {departure}.\n"
+                  f"Please choose a train station that comes after {departure}, not before.\n"
+                  f"Alternatively, please try again with the opposite traject (Maastricht >> Schagen).")
+        elif arrivalIndex == departureIndex:
+            print(f"You are already at {departure}.")
+        elif arrivalStation.capitalize() in stationsLst and arrivalIndex > departureIndex:
             return arrivalStation.capitalize()
         else:
-            print("That didn't work, please try again.")
+            print(f"{arrivalStation.capitalize()} isn't on this traject, please try again.")
 
 
 def outputTrip(stations, departure, arrival):
@@ -68,10 +74,10 @@ def outputTrip(stations, departure, arrival):
             currentStation += 1
             stops += f"  - {stationsLst[currentStation]}\n"
 
-    result = f"Departure station {stationsLst[departureIndex]} is station {departureStation} on this traject.\n" \
-             f"Arrival station {stationsLst[arrivalIndex]} is station {arrivalStation} on this traject.\n" \
+    result = f"Departure station {stationsLst[departureIndex]} is station {departureStation}e station on this traject.\n" \
+             f"Arrival station {stationsLst[arrivalIndex]} is station {arrivalStation}e station on this traject.\n" \
              f"Your trip crosses {distance} stations.\n" \
-             f"The cost of this trip will be €{price}\n" \
+             f"The cost of this trip will be €{price} euro\n" \
              f"You will board the train in: {stationsLst[departureIndex]}\n" \
              f"Passing the following stations:\n" \
              f"{stops}" \

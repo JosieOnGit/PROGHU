@@ -12,7 +12,7 @@ def clicked():
             label2["text"] = "邪惡的中國公司現在會來接你。 \n" \
                              "請不要 Uygurs concentration Camp Xinjiang 反抗。 \n" \
                              "曾經。 \n" \
-                             "ئەرەب مەركىزى ساقچى ئىتتىپاقى ئۇلارنىڭ يولىغا ماڭدى "
+                             "ئەرەب مەركىزى ساقچى ئىتتىپاقى ئۇلارنىڭ يولىغا ماڭدى"
         elif score < 50000:
             label1["text"] = f"You have {score * 5} credit points!!!!!!\n" \
                              f"You are well on youre way!!!\n" \
@@ -25,9 +25,8 @@ def clicked():
                              f"Xi Jinping is proud!!!!!!!!!"
             label2["text"] = "中國為你幹得好而自豪！！！"
     except:
-        label1["background"] = "red"
+        label1["background"] = "Red"
         label1["text"] = "YOU RUINED IT"
-        label1["font"] = "impact"
         label1["foreground"] = "black"
         label2["text"] = "YOU RUINED IT"
 

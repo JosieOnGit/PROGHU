@@ -1,6 +1,6 @@
 
 import tweepy
-import psycopg
+import random
 from tkinter import *
 from auth import (
     consumer_key,
@@ -13,14 +13,28 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
-con = psycopg.connect(
-    host='localhost',
-    dbname='Twitter',
-    user='postgres',
-    password='admin',
-    port=4444
-)
+
+def refreshItem():
+    labelText["text"] = random.choice(tweetsLst)
+
+
+tweets = api.user_timeline(screen_name="TowaVEVO",
+                           count=200,
+                           include_rts=False,
+                           exclude_replies=True,
+                           tweet_mode="extended",
+                           )
+tweetsLst = []
+for info in tweets:
+    tweetsLst.append(info.full_text)
 
 root = Tk()
-root.geometry("1280x720")
+root.geometry("900x480")
 
+labelText = Label(master=root, text=random.choice(tweetsLst), font=("Helvetica", 25, "bold"))
+labelText.pack()
+
+buttonRefresh = Button(master=root, text="Click here to refresh!", command=refreshItem)
+buttonRefresh.pack(fill=X)
+
+root.mainloop()

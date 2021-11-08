@@ -38,8 +38,8 @@ label1 = Label(master=root, background="Blue", text="calculate social credit poi
 label1.pack()
 
 label2 = Label(master=root, background="Red", text="please insert your social credit score NOW!!!",
-               height=5, width=50, foreground="black", font=("Impact", 20))
-label2.pack()
+               height=5, width=40, foreground="black", font=("Impact", 20))
+label2.pack(fill=X)
 
 button = Button(master=root, text="CALCULATE!!!!!!!!!!!!!!", command=clicked)
 button.pack(pady=10, padx=10)

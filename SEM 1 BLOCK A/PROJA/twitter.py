@@ -24,5 +24,5 @@ for info in tweets:
     print(f"{info.full_text}\n")
 
 message = input(">> ")
-# api.update_status(message)
+api.update_status(message)
 print(f"\"{message}\" was successfully submitted to Twitter!")

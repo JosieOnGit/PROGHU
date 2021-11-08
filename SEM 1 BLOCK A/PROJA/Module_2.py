@@ -80,6 +80,22 @@ def review():
     print("----- There currently are no messages to be reviewed, please check back again soon!")
 
 
+def yieldApprovals():
+    cur = con.cursor()
+    cur.execute("SELECT * FROM twitterdb WHERE status = 'Approved'")
+    rows = cur.fetchall()
+    for line in rows:
+        print(f"\"{line[3]}\"")
+
+
+def yieldRejections():
+    cur = con.cursor()
+    cur.execute("SELECT * FROM twitterdb WHERE status = 'Rejected'")
+    rows = cur.fetchall()
+    for line in rows:
+        print(f"\"{line[3]}\"")
+
+
 # This here connects the program to the database
 con = psycopg.connect(
     host='localhost',
@@ -89,4 +105,23 @@ con = psycopg.connect(
     port=4444
 )
 
-review()  # Executes the function
+while True:
+    selection = input("\n----- Welcome, moderator. \n"
+                      "      Please select one of the below options: \n"
+                      "      1. Review new messages \n"
+                      "      2. View approved messages \n"
+                      "      3. View rejected messages \n"
+                      "      4. Exit \n"
+                      ">> ")
+    if selection == "1":
+        review()
+    elif selection == "2":
+        yieldApprovals()
+    elif selection == "3":
+        yieldRejections()
+    elif selection == "4":
+        print("----- Closing the program...")
+        quit()
+    else:
+        print("----- Please only insert a number ranging from 1-4.")
+

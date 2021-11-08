@@ -26,7 +26,7 @@ def review():
         messageQ = input("----- You can now leave a message for us here! \n"
                          "      Please keep it short, as Twitter only allows up to 140 characters. \n"
                          ">> ")
-        if 0 < len(messageQ) < 141:
+        if 0 < len(messageQ) <= 140:
             message = messageQ
             print("----- Thank you! \n")
             break

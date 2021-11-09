@@ -1,12 +1,13 @@
+
 import tweepy
-import random
 import requests
 from tkinter import *
 from auth import (
     consumer_key,
     consumer_secret,
     access_token,
-    access_token_secret
+    access_token_secret,
+    weatherKey
 )
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -14,32 +15,42 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 
+def getTweets():
+    tweets = api.user_timeline(screen_name="TowaVEVO",
+                               count=200,
+                               since_id="1457647866449645568",
+                               include_rts=False,
+                               exclude_replies=True,
+                               tweet_mode="extended",
+                               )
+    tweetsLst = []
+    for info in tweets:
+        tweetsLst.append(f"- {info.full_text}")
+    return tweetsLst
+
+
 def refresh():
-    print(f"Picked some random Tweets!")
-    text1Label["text"] = random.choice(tweetsLst)
-    text2Label["text"] = random.choice(tweetsLst)
-    root.after(5000, refresh)
+    tweetsbox.delete(0, END)
+    items = getTweets()
+    tweetsbox.insert(END, *items)
+    root.after(10000, refresh)
 
-
-tweets = api.user_timeline(screen_name="TowaVEVO",
-                           count=200,
-                           include_rts=False,
-                           exclude_replies=True,
-                           tweet_mode="extended",
-                           )
-tweetsLst = []
-for info in tweets:
-    tweetsLst.append(info.full_text)
 
 urlLoc = "https://ipapi.co/json"
-responseLoc = requests.get(urlLoc)
-city = responseLoc.json()["city"]
+while True:
+    responseLoc = requests.get(urlLoc)
+    data = responseLoc.json()
+    if "city" in data:
+        city = responseLoc.json()["city"]
+        break
 
-urlWeather = f"https://api.openweathermap.org/data/2.5/weather?q={city}&APPID=67ce6bcc59cc08bbd5cebb9e9bfabc11"
+urlWeather = f"https://api.openweathermap.org/data/2.5/weather?q={city}&APPID={weatherKey}"
 responseWeather = requests.get(urlWeather)
 currentTemp = round(responseWeather.json()["main"]["temp"] - 273.15)
 currentFeelsLike = round(responseWeather.json()["main"]["feels_like"] - 273.15)
 weatherLike = responseWeather.json()["weather"][0]["description"]
+
+messages = getTweets()
 
 root = Tk()
 root.title("water mark")
@@ -50,17 +61,14 @@ mainLabel = Label(master=root, bg="#FFAC00", fg="Black", text="NS Twitter feed",
                   height=1, width=100)
 mainLabel.pack()
 
-subLabel = Label(master=root, bg="#FFAC00", fg="Black", text="Some submitted messages:", font=("Sans", 15),
-                 height=2, width=100)
+subLabel = Label(master=root, bg="#FFAC00", fg="Black", text="Recently submitted messages:",
+                 font=("Sans", 15), height=2, width=100)
 subLabel.pack()
 
-text1Label = Label(master=root, bg="#009CDE", text=random.choice(tweetsLst), font=("Sans", 15),
-                   height=4, width=100, wraplength=800)
-text1Label.pack()
-
-text2Label = Label(master=root, bg="#009CDE", text=random.choice(tweetsLst), font=("Sans", 15),
-                   height=4, width=100, wraplength=800)
-text2Label.pack()
+tweetsbox = Listbox(master=root, bg="#009CDE", fg="White",
+                    font=("Sans", 10), height=14, width=140)
+tweetsbox.insert(END, *messages)
+tweetsbox.pack()
 
 currentTempLabel = Label(master=root, bg="#FFAC00",
                          text=f"Current temperature in {city}: {round(currentTemp)}°C",

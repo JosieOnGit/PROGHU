@@ -18,10 +18,10 @@ tweets = api.user_timeline(screen_name="TowaVEVO",
                            tweet_mode="extended"
                            )
 
-for info in tweets:
-    print(f"ID : {info.id}")
-    print(info.created_at)
-    print(f"{info.full_text}\n")
+# for info in tweets:
+#     print(f"ID : {info.id}")
+#     print(info.created_at)
+#     print(f"{info.full_text}\n")
 
 message = input(">> ")
 api.update_status(message)

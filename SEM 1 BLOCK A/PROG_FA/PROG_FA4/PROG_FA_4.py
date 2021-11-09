@@ -1,12 +1,10 @@
 
 def inputDeparture(stations):
     stationsLst = stations
-    stationInLst = False
-    while stationInLst is False:
+    while True:
         departureStation = input("What station will you depart from?\n"
                                  ">> ")
         if departureStation.capitalize() in stationsLst:
-            stationInLst = True
             return departureStation.capitalize()
         else:
             print(f"\"{departureStation.capitalize()}\" isn't on this traject, please try again.")
@@ -46,14 +44,9 @@ def outputTrip(stations, departure, arrival):
     distance = arrivalIndex - departureIndex
     price = distance * 5
 
-    currentStation = departureIndex
     stops = ""
-    for station in range(departureIndex, arrivalIndex):
-        if currentStation + 1 == arrivalIndex:
-            continue
-        else:
-            currentStation += 1
-            stops += f"  - {stationsLst[currentStation]}\n"
+    for station in range(departureIndex + 1, arrivalIndex):
+        stops += f"  - {stationsLst[station]}\n"
 
     result = f"Departure station {stationsLst[departureIndex]} is station {departureStation} on this traject.\n" \
              f"Arrival station {stationsLst[arrivalIndex]} is station {arrivalStation} on this traject.\n" \

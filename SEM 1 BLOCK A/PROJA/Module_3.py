@@ -58,8 +58,9 @@ messages = getTweets()  # Yield existing Tweets before looping getTweets()
 
 # GUI built using Tkinter
 root = Tk()
-root.title("water mark")
+root.title("Nederlandse Spoorwegen Twitterzuil")
 root.geometry("900x480")
+root.iconbitmap("NS_logo.ico")
 root.config(bg="#FFAC00")
 
 mainLabel = Label(master=root, bg="#FFAC00", fg="Black", text="NS Twitter feed", font=("Sans", 30),
@@ -70,7 +71,7 @@ subLabel = Label(master=root, bg="#FFAC00", fg="Black", text="Recently submitted
                  font=("Sans", 15), height=2, width=100)
 subLabel.pack()
 
-tweetsbox = Listbox(master=root, bg="#009CDE", fg="White",
+tweetsbox = Listbox(master=root, bg="#003082", fg="White",
                     font=("Sans", 10), height=14, width=140)
 tweetsbox.insert(END, *messages)
 tweetsbox.pack()

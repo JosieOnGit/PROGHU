@@ -27,54 +27,61 @@ def review():
     for line in rows:  # Each line with "Pending" will be individually checked, loops ends when there are none left
         print(f"----- \"{line[3]}\" \n"
               f"      Please check the above message for any profanity, reliability, etc.")
-        approvalQ = input("      Do you approve this message? (Y/N) \n"
-                          ">> ")
-        if approvalQ.lower() == "y":  # The following will happen if the message is approved:
-            # Takes the date AND time of review for the message currently being reviewed
-            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-            print(f"----- You've successfully approved this message: \"{line[3]}\" \n")
+        while True:
+            approvalQ = input("      Do you approve this message? (Y/N) \n"
+                              ">> ")
+            if approvalQ.lower() == "y":  # The following will happen if the message is approved:
+                # Takes the date AND time of review for the message currently being reviewed
+                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-            cur = con.cursor()  # Selects the exact message that is being reviewed
-            cur.execute("SELECT * FROM twitterdb WHERE status = 'Pending'")
-            messageID = line[0]
+                print(f"----- You've successfully approved this message: \"{line[3]}\" \n")
 
-            pushValues = (superuser, 'Approved', '', timestamp, messageID)
-            update = "UPDATE twitterdb " \
-                     "SET (modname, status, modmessage, reviewdatetime) = (%s, %s, %s, %s)" \
-                     "WHERE messagenum = %s"
+                cur = con.cursor()  # Selects the exact message that is being reviewed
+                cur.execute("SELECT * FROM twitterdb WHERE status = 'Pending'")
+                messageID = line[0]
 
-            cur.execute(update, pushValues)  # Updates the message being reviewed with the new values
-            con.commit()  # Commits the above changes
-            try:  # Attempts to push the approved message to the Twitter handle
-                print("----- Attempting to push message to Twitter... ")
-                api.update_status(line[3])
-                print(f"      Message \"{line[3]}\" is published to Twitter! \n")
-            except:  # Prints an error if something goes wrong. This might happen if Twitter is down
-                print("----- Unknown error \n"
-                      "      Something went wrong, we're looking into the issue. \n"
-                      "      You might need to manually add the message to Twitter.")
+                pushValues = (superuser, 'Approved', '', timestamp, messageID)
+                update = "UPDATE twitterdb " \
+                         "SET (modname, status, modmessage, reviewdatetime) = (%s, %s, %s, %s)" \
+                         "WHERE messagenum = %s"
 
-        else:  # The following will happen if the message is rejected:
-            # Takes the date AND time of review for the message currently being reviewed
-            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                cur.execute(update, pushValues)  # Updates the message being reviewed with the new values
+                con.commit()  # Commits the above changes
+                try:  # Attempts to push the approved message to the Twitter handle
+                    print("----- Attempting to push message to Twitter... ")
+                    api.update_status(line[3])
+                    print(f"      Message \"{line[3]}\" is published to Twitter! \n")
+                except:  # Prints an error if something goes wrong. This might happen if Twitter is down
+                    print("----- Unknown error \n"
+                          "      Something went wrong, we're looking into the issue. \n"
+                          "      You might need to manually add the message to Twitter.")
+                break
 
-            # The moderator adds a reason why the message in question is being rejected
-            removalReason = input("----- You are rejecting the above message. Please give a reason as to why. \n"
-                                  ">> ")
-            print(f"----- You've successfully rejected this message: \"{line[3]}\" \n")
+            elif approvalQ == "n":  # The following will happen if the message is rejected:
+                # Takes the date AND time of review for the message currently being reviewed
+                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-            cur = con.cursor()  # Selects the exact message that is being reviewed
-            cur.execute("SELECT * FROM twitterdb WHERE status = 'Pending'")
-            messageID = line[0]
+                # The moderator adds a reason why the message in question is being rejected
+                removalReason = input("----- You are rejecting the above message. Please give a reason as to why. \n"
+                                      ">> ")
+                print(f"----- You've successfully rejected this message: \"{line[3]}\" \n")
 
-            pushValues = (superuser, 'Rejected', removalReason, timestamp, messageID)
-            update = "UPDATE twitterdb " \
-                     "SET (modname, status, modmessage, reviewdatetime) = (%s, %s, %s, %s)" \
-                     "WHERE messagenum = %s"
+                cur = con.cursor()  # Selects the exact message that is being reviewed
+                cur.execute("SELECT * FROM twitterdb WHERE status = 'Pending'")
+                messageID = line[0]
 
-            cur.execute(update, pushValues)  # Updates the message being reviewed with the new values
-            con.commit()  # Commits the above changes
+                pushValues = (superuser, 'Rejected', removalReason, timestamp, messageID)
+                update = "UPDATE twitterdb " \
+                         "SET (modname, status, modmessage, reviewdatetime) = (%s, %s, %s, %s)" \
+                         "WHERE messagenum = %s"
+
+                cur.execute(update, pushValues)  # Updates the message being reviewed with the new values
+                con.commit()  # Commits the above changes
+                break
+            else:
+                print("Please only type \"Y\" or \"N\".")
+                continue
 
     # If there are no messages left, the following print will be displayed, and the program will close:
     print("----- There currently are no messages to be reviewed, please check back again soon!")

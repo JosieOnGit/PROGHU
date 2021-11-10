@@ -1,3 +1,4 @@
+
 import requests
 
 url = "https://ipapi.co/json"

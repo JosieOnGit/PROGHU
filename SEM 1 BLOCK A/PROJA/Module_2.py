@@ -131,4 +131,3 @@ while True:
         quit()
     else:
         print("----- Please only insert a number ranging from 1-4.")
-

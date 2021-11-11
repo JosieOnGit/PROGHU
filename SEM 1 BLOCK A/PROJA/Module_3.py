@@ -19,7 +19,7 @@ api = tweepy.API(auth)
 def getTweets():  # Use Twitter API to collect recent tweets
     tweets = api.user_timeline(screen_name="TowaVEVO",
                                count=200,
-                               since_id="1457647866449645568",  # Tweets before this ID gibberish and won't be read
+                               since_id="1457669635093024772",  # Tweets before this ID are gibberish and won't be read
                                include_rts=False,
                                exclude_replies=True,
                                tweet_mode="extended",

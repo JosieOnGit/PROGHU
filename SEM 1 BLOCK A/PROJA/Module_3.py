@@ -31,6 +31,7 @@ def getTweets():  # Use Twitter API to collect recent tweets
 
 
 def refresh():  # Updates the listbox with new Tweets
+    print("----- Refreshing Twitter feed...")
     tweetsbox.delete(0, END)  # Clears existing list of Tweets
     items = getTweets()  # Executes getTweets to collect new Tweets (if there are any)
     tweetsbox.insert(END, *items)  # All Tweets, including new ones, are added back to the listbox

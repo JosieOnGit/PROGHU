@@ -58,7 +58,7 @@ def review():
                           "      You might need to manually add the message to Twitter.")
                 break
 
-            elif approvalQ == "n":  # The following will happen if the message is rejected:
+            elif approvalQ.lower() == "n":  # The following will happen if the message is rejected:
                 # Takes the date AND time of review for the message currently being reviewed
                 timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 

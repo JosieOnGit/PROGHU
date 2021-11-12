@@ -1,0 +1,13 @@
+CREATE DATABASE Twitter
+
+CREATE TABLE TwitterDB (
+    messagenum integer PRIMARY KEY,
+    station varchar(255),
+    username varchar(255),
+    usermessage varchar(140),
+    submissiondate date,
+    modname varchar(255),
+    status varchar(255),
+    modmessage varchar(255),
+	reviewdatetime varchar(255)
+)

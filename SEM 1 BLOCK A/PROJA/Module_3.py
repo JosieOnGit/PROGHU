@@ -46,6 +46,9 @@ while True:  # The API might give an error, this loops the request until the cor
         city = responseLoc.json()["city"]
         print("----- Success!")
         break
+    else:  # Hotfix for location error
+        city = "Utrecht"
+        break
 
 # Using the above location data, we use the weather API to find weather information about said location
 urlWeather = f"https://api.openweathermap.org/data/2.5/weather?q={city}&APPID={weatherKey}"
@@ -73,7 +76,7 @@ subLabel.pack()
 
 tweetsbox = Listbox(master=root, bg="#003082", fg="White",
                     font=("Sans", 10), height=14, width=140)
-tweetsbox.insert(END, *messages)
+tweetsbox.insert(END, *messages)  # Tweets added to the list are inserted into the listbox
 tweetsbox.pack()
 
 currentTempLabel = Label(master=root, bg="#FFAC00",

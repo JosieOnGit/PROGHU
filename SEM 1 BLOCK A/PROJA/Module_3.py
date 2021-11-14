@@ -49,6 +49,8 @@ while True:  # The API might give an error, this loops the request until the cor
         break
     else:  # Hotfix for location error
         city = "Utrecht"
+        print("----- [HTTP/1.1 | 429] Too Many Requests \n"
+              "      For testing purposes, the location has been defaulted to Utrecht")
         break
 
 # Using the above location data, we use the weather API to find weather information about said location

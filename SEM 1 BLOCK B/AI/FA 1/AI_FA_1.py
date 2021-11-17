@@ -18,10 +18,22 @@ def ceil(real):
 
 
 def div(num):
-
     divisors = []
+    for i in range(1, num + 1):
+        if num % i == 0:
+            divisors.append(i)
+
     return sorted(divisors)
 
 
-num = input("Insert a number >> ")  # Basic num input
+def isPrime(num):
+    divisors = div(num)
+    if len(divisors) > 2 or len(divisors) == 1:
+        return False
+    else:
+        return True
+
+
+num = int(input("Insert a number >> "))  # Basic num input
 real = input("Insert a number with decimals >> ")  # Basic real input
+print(div(num))

@@ -1,5 +1,4 @@
-
-#!/usr/bin/env python
+# !/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
@@ -48,35 +47,20 @@ def ceil(real):
 
 
 def div(n):
-    """
-    Bepaal alle delers van een geheel getal.
-
-    Het positieve gehele getal a is een deler van n, als er een positief geheel getal b is, zodat a × b = n.
-
-    Args:
-        n (int): Een geheel getal.
-
-    Returns:
-        list: Een gesorteerde lijst met alle delers van `n`.
-    """
     divisors = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            divisors.append(i)
+
     return sorted(divisors)
 
 
 def is_prime(n):
-    """
-    Bepaal of gegeven getal een priemgetal is.
-
-    Hint: maak gebruik van de functie `div()`.
-    Optioneel: bedenk een efficiënter alternatief.
-
-    Args:
-        n (int): Een geheel getal.
-
-    Returns:
-        bool: True als het getal een priemgetal is, anders False.
-    """
-    return
+    divisors = div(n)
+    if len(divisors) > 2 or len(divisors) == 1:
+        return False
+    else:
+        return True
 
 
 def primes(num):
@@ -231,9 +215,9 @@ def test_floor():
         ((-1.95,), -2),
         ((0.05,), 0),
         ((-0.05,), -1),
-        ((0.0, ), 0),
-        ((1.0, ), 1),
-        ((-1.0, ), -1)
+        ((0.0,), 0),
+        ((1.0,), 1),
+        ((-1.0,), -1)
     ]
 
     for case in testcases:
@@ -257,9 +241,9 @@ def test_ceil():
         ((-1.95,), -1),
         ((0.05,), 1),
         ((-0.05,), 0),
-        ((0.0, ), 0),
-        ((1.0, ), 1),
-        ((-1.0, ), -1)
+        ((0.0,), 0),
+        ((1.0,), 1),
+        ((-1.0,), -1)
     ]
 
     for case in testcases:
@@ -409,7 +393,7 @@ def __main():
     os.system("")
 
     try:
-        print("\x1b[32m")   # Groene tekstkleur
+        print("\x1b[32m")  # Groene tekstkleur
         test_id()
 
         test_is_even()
@@ -450,10 +434,10 @@ def __main():
 
 
     except AssertionError as ae:
-        print("\x1b[31m")   # Rode tekstkleur
+        print("\x1b[31m")  # Rode tekstkleur
         print(ae)
 
-    print("\x1b[0m")    # Reset tekstkleur
+    print("\x1b[0m")  # Reset tekstkleur
 
 
 if __name__ == '__main__':

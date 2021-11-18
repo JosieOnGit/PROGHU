@@ -34,6 +34,15 @@ def isPrime(num):
         return True
 
 
+def primes(num):
+    primelist = []
+    for number in range(1, num + 1):
+        if isPrime(number):
+            primelist.append(number)
+
+    return sorted(primelist)
+
+
 num = int(input("Insert a number >> "))  # Basic num input
 real = input("Insert a number with decimals >> ")  # Basic real input
-print(div(num))
+print(primes(num))

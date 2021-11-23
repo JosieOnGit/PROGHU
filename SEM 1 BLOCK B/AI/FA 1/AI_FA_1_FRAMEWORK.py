@@ -66,24 +66,24 @@ def is_prime(n):
 def primes(num):
     primelist = []
     for number in range(1, num+1):
-        if is_prime(number):
-            primelist.append(number)
+        if number < num:
+            if is_prime(number):
+                primelist.append(number)
 
     return sorted(primelist)
 
 
 def primefactors(n):
-    """
-    Bepaal de verzameling van priemfactoren van n.
-
-    Args:
-        n (int): Een geheel getal.
-
-    Returns:
-        list: Een gesorteerde lijst met alle priemfactoren van n. Als n kleiner
-            dan 2, retourneer dan een lege lijst `[]`.
-    """
+    num = 2
     factors = []
+    while num * num <= n:
+        if n % num:
+            num += 1
+        else:
+            n //= num
+            factors.append(num)
+    if n > 1:
+        factors.append(n)
     return sorted(factors)
 
 

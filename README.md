@@ -5,7 +5,7 @@
 # Will the real Momosuzu Nene
  please stand up
  
-![](https://pbs.twimg.com/media/FAN9_7-VQAQaG-k?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/FEo5bhhVgAEWuQ_?format=jpg&name=large)
 
 # Thank you
 momosuzu nene for standing up 

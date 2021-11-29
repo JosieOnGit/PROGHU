@@ -84,40 +84,28 @@ def primefactors(n):
             factors.append(num)
     if n > 1:
         factors.append(n)
+    print(sorted(factors))
     return sorted(factors)
 
 
 def gcd(a, b):
-    """
-    Bepaal de grootste grootste gemene deler (ook wel 'greatest common divisor', gcd) van twee natuurlijke getallen.
-
-    Je hebt twee opties voor deze opgave:
-    1.  Je programmeert hier het algoritme van Euclides.
-        Zie: https://nl.wikipedia.org/wiki/Algoritme_van_Euclides
-    2.  Je bedenkt zelf een oplossing waarbij je gebruik maakt van de eerder
-        geschreven methode div(n) om de gcd te bepalen.
-
-    Args:
-        a (int): Een geheel getal.
-        b (int): Een geheel getal.
-
-    Returns:
-        int: De grootste grootste gemene deler.
-    """
-    return
+    numsa = []
+    numsb = []
+    for num in div(a):
+        numsa.append(num)
+    for num in div(b):
+        numsb.append(num)
+    numsa = numsa[::-1]
+    numsb = numsb[::-1]
+    for numa in numsa:
+        for numb in numsb:
+            if numa == numb:
+                return numa
 
 
 def lcm(a, b):
-    """
-    Bepaal het kleinste gemene veelvoud, kgv (ook wel 'least common multiple', lcm) van twee natuurlijke getallen.
+    # TODO: THIS!!!!!
 
-    Args:
-        a (int): Een geheel getal.
-        b (int): Een geheel getal.
-
-    Returns:
-        int: Het kleinste gemene veelvoud.
-    """
     return
 
 

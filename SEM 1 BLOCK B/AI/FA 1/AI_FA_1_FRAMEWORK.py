@@ -84,7 +84,6 @@ def primefactors(n):
             factors.append(num)
     if n > 1:
         factors.append(n)
-    print(sorted(factors))
     return sorted(factors)
 
 
@@ -104,40 +103,23 @@ def gcd(a, b):
 
 
 def lcm(a, b):
-    # TODO: THIS!!!!!
-
-    return
+    lcm = (a*b)//gcd(a, b)
+    return lcm
 
 
 def add_frac(n1, d1, n2, d2):
-    """Sommeer twee breuken als breuk. Vereenvoudig de breuk zover als mogelijk.
+    div = lcm(d1, d2)
+    n3 = n1 * (div / d1)
+    n4 = n2 * (div / d2)
+    num = n3 + n4
+    while True:
+        if num % 2 == 0 and div % 2 == 0:
+            num = num / 2
+            div = div / 2
+        else:
+            break
 
-    Args:
-        n1 (int): De teller van de eerste breuk.
-        d1 (int): De noemer van de eerste breuk.
-        n2 (int): De teller van de tweede breuk.
-        d2 (int): De noemer van de tweede breuk.
-
-    Returns:
-        tuple: De som *als breuk*, met eerst de teller en dan de noemer van het resultaat.
-
-    Examples:
-        Gegeven 1/3 + 1/5 = 8/15, dan
-
-        >> add_frac(1, 3, 1, 5)
-        (8, 15)
-
-        Gegeven 1/2 + 1/4 = 3/4, dan
-
-        >> add_frac(1, 2, 1, 4)
-        (3, 4)
-
-        Gegeven 2/3 + 3/2 = 13/6, dan
-
-        >> add_frac(2, 3, 3, 2)
-        (13, 6)
-    """
-    return 1, 1
+    return int(num), div
 
 
 """

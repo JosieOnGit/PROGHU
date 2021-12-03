@@ -113,7 +113,7 @@ def add_frac(n1, d1, n2, d2):
     n4 = n2 * (div / d2)
     num = n3 + n4
     while True:
-        if num % 2 == 0 and div % 2 == 0:
+        if is_even(num) and is_even(div):
             num = num / 2
             div = div / 2
         else:

@@ -24,7 +24,7 @@ Let op! Het is niet toegestaan om bestaande modules te importeren en te
 
 naam = "Joselyne de Zeeuw"
 klas = "TICT-ICT-V1B"
-studentnummer = -1
+studentnummer = 1809264
 
 """
 1.  Sorteeralgoritme

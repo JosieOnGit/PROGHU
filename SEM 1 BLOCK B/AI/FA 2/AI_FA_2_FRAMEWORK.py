@@ -106,6 +106,11 @@ def my_sort(lst):
     Returns:
         list: Een nieuwe, gesorteerde variant van lijst `lst`.
     """
+    while True:
+        if lst[0] > lst[1]:
+            lst[0], lst[1] = lst[1], lst[0]
+        
+
     lst_sorted = None
     return lst_sorted
 

@@ -1,5 +1,4 @@
-
-#!/usr/bin/env python
+# !/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
@@ -83,16 +82,16 @@ def freq(lst):
     freqs = dict()
     for num in lst:
         freqs[num] = lst.count(num)
+
     return freqs
 
 
 def modes(lst):
     modi = []
-    for num in freq(lst):
-        if lst.count(num) <= max(freq(lst)):
-            continue
-        else:
-            modi.append(num)
+    maxValue = max(freq(lst).values())
+    for key, value in freq(lst).items():
+        if value == maxValue:
+            modi.append(key)
 
     return sorted(modi)
 
@@ -286,7 +285,7 @@ def __main():
     os.system("")
 
     try:
-        print("\x1b[32m")   # Groene tekstkleur
+        print("\x1b[32m")  # Groene tekstkleur
         test_id()
 
         test_mean()
@@ -353,10 +352,10 @@ def __main():
         print("\nHistogram (gekanteld):\n\n" + hist(freq(userlst)))
 
     except AssertionError as ae:
-        print("\x1b[31m")   # Rode tekstkleur
+        print("\x1b[31m")  # Rode tekstkleur
         print(ae)
 
-    print("\x1b[0m")    # Reset tekstkleur
+    print("\x1b[0m")  # Reset tekstkleur
 
 
 if __name__ == '__main__':

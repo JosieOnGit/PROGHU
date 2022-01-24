@@ -57,17 +57,22 @@ def q1(lst):
 
 
 def q3(lst):
-    lst.sort()
-    lst.reverse()
+    lst.sort()  # De gegeven lijst wordt gesorteerd
+    lst.reverse()  # De nu gesorteerde lijst wordt nu omgedraaid
 
+    # Doordat de lijst nu omgedraaid is, kan het 3e kwartiel op dezelfde wijze berekend worden als het 1e kwartiel
     return median(lst[:len(lst) // 2])
 
 
 def var(lst):
-    avg = sum(lst) / len(lst)
+    avg = sum(lst) / len(lst)  # avg neemt de som van de gegeven lijst en deelt deze door het aantal items in de lijst
     newLst = []
     for num in lst:
+        # De afwijking wordt aan een nieuwe lijst toegevoegd
+        # Van elk getal in de lijst wordt het gemiddelde afgerekend, en dat getal wordt gekwadrateerd
+        # Dit nieuwe getal wordt toegevoegd aan newLst
         newLst.append((num - avg) ** 2)
+    # De variantie wordt nu op dezelfde wijze berekend, de som van newLst gedeeld door de lengte van newLst
     variance = sum(newLst) / len(newLst)
 
     return variance
